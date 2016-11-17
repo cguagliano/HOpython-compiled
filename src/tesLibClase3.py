@@ -13,6 +13,15 @@ math.add_float_ref(C.byref(dos),C.byref(siete),C.byref(res2))
 print res2.value
 math.add_float.restype=C.c_float
 print math.add_float(dos,siete)
+in1=(C.c_int*3)(1,2,3)
+in2=(C.c_int*3)(-2,5,8)
+out=(C.c_int*3)()
+math.add_int_array(C.byref(in1),C.byref(in2),C.byref(out),3)
+print out[0],out[1],out[2]
+fl1=(C.c_float*3)(1.4,3.5,1.2)
+fl2=(C.c_float*3)(1,5,3)
+math.dot_product.restype=C.c_float
+print math.dot_product(C.byref(fl1),C.byref(fl2),3)
 
 
 
